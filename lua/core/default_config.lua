@@ -8,7 +8,9 @@ M.ui = {
   ------------------------------- base46 -------------------------------------
   -- hl = highlights
   hl_add = {},
-  hl_override = {},
+  hl_override = {
+    LineNr = {fg = "cyan"},
+  },
   changed_themes = {},
   theme_toggle = { "onedark", "one_light" },
   theme = "onedark", -- default theme
