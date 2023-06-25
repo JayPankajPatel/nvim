@@ -38,7 +38,7 @@ local plugins = {
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    ft = {"python"},
+    ft = {"python", "c", "cpp"},
     opts = function()
       return require "custom.configs.null-ls"
     end,
@@ -63,8 +63,5 @@ local plugins = {
     end,
   },
   -- This is a plugin for a vim game to practice vim movements.
-  {
-    "ThePrimeagen/vim-be-good"
-  },
 }
 return plugins
