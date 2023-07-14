@@ -1,6 +1,7 @@
 # nvim
 ## Prerequisites
 You need `python`, `npm`, and `git` installed on your system, if you need something with fewer dependencies check out my `.vim` repo. 
+Make sure you have a nerd font installed, its not necessary however the nice symbols won't work if you don't.
 
 ## Installation
 This is my neovim setup based of NvChad
