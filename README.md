@@ -27,7 +27,7 @@ This is my neovim setup based of NvChad
 
 ## Tips
 If you hit <leader\> ch in Normal Mode there is a cheatsheet with all of the possible options and also there is which key functionality to help you keep track key actions
-Leader is the space key by default in this by default.
+Leader is the space key but you can change the mappings in custom/init.lua.
 
 If you want to customize anything please change anything you want using under the custom directory. 
 If you aren't sure please read the NvChad documentation.
