@@ -2,6 +2,7 @@
 ## Prerequisites
 You need `python`, `npm`, and `git` installed on your system, if you need something with fewer dependencies check out my `.vim` repo. 
 
+## Installation
 This is my neovim setup based of NvChad
 1) Install Neovim, if you need help go to their installation guide from source [here](https://github.com/neovim/neovim/wiki/Building-Neovim)
 2) Install NvChad with the following command
