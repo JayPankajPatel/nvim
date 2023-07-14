@@ -1,8 +1,11 @@
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-local null_ls = require('null-ls')
+local null_ls = require("null-ls")
 
 local opts = {
   sources = {
+    -- C/C++
+    null_ls.builtins.formatting.clang_format,
+    -- python
     null_ls.builtins.formatting.black,
     null_ls.builtins.diagnostics.mypy,
     null_ls.builtins.diagnostics.ruff,
@@ -23,4 +26,5 @@ local opts = {
     end
   end,
 }
+
 return opts

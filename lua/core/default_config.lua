@@ -9,7 +9,9 @@ M.ui = {
   -- hl = highlights
   hl_add = {},
   hl_override = {
-    LineNr = {fg = "cyan"},
+    LineNr = {
+      fg = "cyan",
+    },
   },
   changed_themes = {},
   theme_toggle = { "onedark", "one_light" },
@@ -89,6 +91,6 @@ M.plugins = "" -- path i.e "custom.plugins", so make custom/plugins.lua file
 
 M.lazy_nvim = require "plugins.configs.lazy_nvim" -- config for lazy.nvim startup options
 
-M.mappings = {}
+M.mappings = require "core.mappings"
 
 return M
