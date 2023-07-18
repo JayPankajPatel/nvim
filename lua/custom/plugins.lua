@@ -1,5 +1,16 @@
 local plugins = {
   {
+    lazy=false,
+    "danymat/neogen",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    config = function ()
+      require "custom.configs.neogen"
+      require("core.utils").load_mappings("neogen")
+    end,
+    -- Uncomment next line if you want to follow only stable versions
+    -- version = "*" 
+  },
+  {
     'lervag/vimtex',
     event = "VeryLazy",
     ft = {"tex"},

@@ -10,7 +10,17 @@ M.dap = {
     ["<leader>dr"] = {
       "<cmd> DapContinue <CR>",
       "Start or continue the debugger",
-    }
+    },
+  }
+}
+
+M.neogen = {
+  plugin = true,
+  n = {
+    ["<leader>gdc"] = {
+      "<cmd> Neogen <CR>",
+      "Generate documentation comments",
+    },
   }
 }
 
