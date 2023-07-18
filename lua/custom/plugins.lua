@@ -1,5 +1,10 @@
 local plugins = {
   {
+    'lervag/vimtex',
+    event = "VeryLazy",
+    ft = {"tex"},
+  },
+  {
     lazy=false,
     "tpope/vim-surround",
   },
@@ -67,6 +72,12 @@ local plugins = {
         "ruff",
         "black",
         "debugpy",
+        -- bash
+        "bash-language-server",
+        "bash-debug-adapter",
+        -- LaTeX
+        "ltex-ls",
+        "latexindent",
       }
     }
   }

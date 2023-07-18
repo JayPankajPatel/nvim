@@ -27,8 +27,6 @@ local ms = ls.multi_snippet
 local k = require("luasnip.nodes.key_indexer").new_key
 
 local lua_snippets = {
-
-  s("hi", t"Hello World!")
-
+  s("hi",  t"Hello World!"),
 }
 return lua_snippets 

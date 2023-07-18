@@ -1,17 +1,22 @@
-local base = require("plugins.configs.lspconfig")
+local base = require('plugins.configs.lspconfig')
 local on_attach = base.on_attach
 local capabilities = base.capabilities
 
-local lspconfig = require("lspconfig")
+local lspconfig = require('lspconfig')
+local servers = { 'pyright', 'bashls', 'ltex'}
 
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+end
+
+-- clangd requires special setup because of a bug. 
 lspconfig.clangd.setup {
   on_attach = function(client, bufnr)
     client.server_capabilities.signatureHelpProvider = false
     on_attach(client, bufnr)
   end,
   capabilities = capabilities,
-}
-lspconfig.pyright.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
 }
