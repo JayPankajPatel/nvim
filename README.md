@@ -8,7 +8,7 @@ Make sure you have a nerd font installed, its not necessary however the nice sym
 sudo apt install python python3.10-venv git
 # For nvm which is the recommended way of installing nodejs and npm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-source ~/.bashrc
+source $HOME/.bashrc
 nvm install node
 ```
 ## Installation
