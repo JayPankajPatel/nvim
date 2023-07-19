@@ -8,7 +8,7 @@ Make sure you have a nerd font installed, its not necessary however the nice sym
 sudo apt install python python3.10-venv git
 # For nvm which is the recommended way of installing nodejs and npm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-source ~/.bashrc
+source $HOME/.bashrc
 nvm install node
 ```
 ## Installation
@@ -22,7 +22,7 @@ This is my neovim setup based of NvChad
 
     `rm $HOME/.config/nvim && git clone https://github.com/JayPankajPatel/nvim.git $HOME/.config/nvim`
 7) open nvim and use the command `:MasonInstallAll` to install the lsps I have, right now I believe I only have one for python
-8) Syntax highting comes using a tool called Treesitter we must install them individually for each language we want using `:TSInstall <your_language>`
+8) Syntax highlighting comes using a tool called Treesitter we must install them individually for each language we want using `:TSInstall <your_language>`
    Example: `:TSInstall python` `:TSInstall c`
 
 ## Tips
