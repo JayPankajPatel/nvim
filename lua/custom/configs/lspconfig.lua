@@ -3,7 +3,7 @@ local on_attach = base.on_attach
 local capabilities = base.capabilities
 
 local lspconfig = require('lspconfig')
-local servers = { 'pyright', 'bashls', 'ltex'}
+local servers = { 'pyright', 'bashls', 'ltex', 'dartls'}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

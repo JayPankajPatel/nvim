@@ -1,6 +1,26 @@
 local plugins = {
   {
-    lazy=false,
+    event = "VeryLazy",
+    'edluffy/hologram.nvim',
+    config = function ()
+      require("hologram").setup{
+        auto_display = true
+      }
+    end,
+  },
+  {
+    'akinsho/flutter-tools.nvim',
+    ft = {"dart"},
+    dependencies = {
+        'nvim-lua/plenary.nvim',
+        'stevearc/dressing.nvim', -- optional for vim.ui.select
+    },
+    config = function ()
+      require("flutter-tools").setup{}
+    end,
+  },
+  {
+    event = "VeryLazy",
     "danymat/neogen",
     dependencies = "nvim-treesitter/nvim-treesitter",
     config = function ()
@@ -89,6 +109,8 @@ local plugins = {
         -- LaTeX
         "ltex-ls",
         "latexindent",
+        -- dart 
+        "dart-debug-adapter",
       }
     }
   }
