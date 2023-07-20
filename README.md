@@ -14,14 +14,11 @@ nvm install node
 ## Installation
 This is my neovim setup based of NvChad
 1) Install Neovim, if you need help go to their installation guide from source [here](https://github.com/neovim/neovim/wiki/Building-Neovim)
-2) Install NvChad with the following command
-
-     `git clone https://github.com/NvChad/NvChad $HOME/.config/nvim --depth 1 && nvim`
-4) Say No to the first prompt that opens when you download it and allow everything to install and download
-5) Go to `$HOME/.config` and replace your `nvim` file with mine
-
-    `rm $HOME/.config/nvim && git clone https://github.com/JayPankajPatel/nvim.git $HOME/.config/nvim`
-7) open nvim and use the command `:MasonInstallAll` to install the lsps I have, right now I believe I only have one for python
+2) Be sure to backup any previous configurations before installing this one.
+3) Install my configuration in the following directory: `$HOME/.config`
+   
+   `git clone https://github.com/JayPankajPatel/nvim.git --depth=1 $HOME/.config`
+7) open nvim and use the command `:MasonInstallAll` to install the lsps I have, you can edit which tools you want under `lspconfig.lua` and `null-ls.lua`
 8) Syntax highlighting comes using a tool called Treesitter we must install them individually for each language we want using `:TSInstall <your_language>`
    Example: `:TSInstall python` `:TSInstall c`
 
@@ -31,3 +28,7 @@ Leader is the space key but you can change the mappings in custom/init.lua.
 
 If you want to customize anything please change anything you want using under the custom directory. 
 If you aren't sure please read the NvChad documentation.
+
+This configuration is based off of NvChad, for more details on customization, visit their documentation [here.](https://nvchad.com/docs/quickstart/install)  
+
+A more detailed documentation is on the way. 
