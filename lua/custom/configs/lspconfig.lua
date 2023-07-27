@@ -3,7 +3,7 @@ local on_attach = base.on_attach
 local capabilities = base.capabilities
 
 local lspconfig = require('lspconfig')
-local servers = { 'pyright', 'bashls', 'ltex', 'dartls'}
+local servers = { 'pyright', 'bashls', 'texlab', 'ltex', 'dartls'}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -20,5 +20,5 @@ lspconfig.clangd.setup {
   end,
   capabilities = capabilities,
 }
--- tex lab does not have capabilities or on_attach functions
-lspconfig.texlab.setup{}
+-- ltex doesn't start otherwise so I put it here
+lspconfig.ltex.setup{}
