@@ -1,5 +1,4 @@
--- no annoying swapfiles
-vim.opt.swapfile = false
+-- no annoying swapfiles vim.opt.swapfile = false
 -- open with relative numbers
 vim.api.nvim_command('set relativenumber')
 

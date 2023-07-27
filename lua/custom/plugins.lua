@@ -1,5 +1,26 @@
 local plugins = {
   {
+    lazy = false,
+    'andweeb/presence.nvim',
+    config = function ()
+      require('presence').setup{
+        -- log_level = 'debug'
+      }
+    end,
+  },
+  {
+    lazy = false,
+    "Pocco81/auto-save.nvim",
+    config = function ()
+      require("auto-save").setup{
+      }
+    end
+  },
+  {
+    lazy = false,
+    'christoomey/vim-tmux-navigator',
+    require("core.utils").load_mappings("vim_tmux")
+  }, {
     event = "VeryLazy",
     'edluffy/hologram.nvim',
     config = function ()
@@ -109,6 +130,7 @@ local plugins = {
         -- LaTeX
         "ltex-ls",
         "latexindent",
+        "texlab",
         -- dart 
         "dart-debug-adapter",
       }

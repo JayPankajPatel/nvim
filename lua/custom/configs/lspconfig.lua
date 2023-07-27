@@ -20,3 +20,5 @@ lspconfig.clangd.setup {
   end,
   capabilities = capabilities,
 }
+-- tex lab does not have capabilities or on_attach functions
+lspconfig.texlab.setup{}
