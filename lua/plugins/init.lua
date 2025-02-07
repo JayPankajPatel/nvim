@@ -13,13 +13,77 @@ return {
     end,
   },
 
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "lua-language-server",
+        "stylua",
+        "prettier",
+        "black",
+        "isort",
+        "latexindent",
+        "texlab",
+        "pyflakes",
+        "clangd",
+        "clang_format",
+        "verible",
+        "ltex-ls",
+      },
+    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "c",
+        "python",
+        "verilog",
+      },
+    },
+  },
+  {
+    "lervag/vimtex",
+    lazy = false, -- we don't want to lazy load VimTeX
+    -- tag = "v2.15", -- uncomment to pin to a specific release
+    init = function()
+      -- VimTeX configuration goes here, e.g.
+      vim.g.vimtex_view_method = "zathura"
+      vim.opt.conceallevel = 1
+      vim.g.tex_conceal = "abdmg"
+    end,
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    event = "VeryLazy",
+    dependencies = { "rafamadriz/friendly-snippets" },
+    -- follow latest release.
+    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    -- install jsregexp (optional!).
+    build = "make install_jsregexp",
+    config = function()
+      require("luasnip").config.set_config {
+        enable_autosnippets = true,
+        store_selection_keys = "<Tab>",
+      }
+      require("luasnip.loaders.from_vscode").lazy_load()
+      -- Somewhere in your Neovim startup, e.g. init.lua
+      require("luasnip").config.set_config { -- Setting LuaSnip config
+        -- Use <Tab> (or some other key if you prefer) to trigger visual selection
+        store_selection_keys = "<Tab>",
+        enable_autosnippets = true,
+      }
+      require("luasnip.loaders.from_lua").lazy_load { paths = "~/.config/nvim/lua/configs/LuaSnip/" }
+    end,
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    event = "VeryLazy",
+    opts = function()
+      return require "../configs/null-ls"
+    end,
+  }
 }
