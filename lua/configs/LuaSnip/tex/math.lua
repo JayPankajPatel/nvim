@@ -28,6 +28,8 @@ end
 --
 return {
   -- Examples of Greek letter snippets, autotriggered for efficiency
+  --
+  s({ trig = "sec", dscr = "Expands 'sec' starred into '\\section*{}'" }, fmta("\\section*{<>}\n<>", { i(1), i(2)})),
   s({ trig = "ff", dscr = "Expands 'ff' into '\\frac{}{}'" }, fmta("\\frac{<>}{<>}", { i(1), i(2) })),
   s(
     { trig = "beg", dscr = "Expands into to begin/end enviorment" },
@@ -246,26 +248,29 @@ return {
     fmta(
       [[
         \subsection{<>}
+        <>
       ]],
-      { i(1) }
+      { i(1), i(2) }
     )
   ),
   s(
     { trig = "sbsb", dscr = "Expands 'sbsb' into subsubsection commmand" },
     fmta(
       [[
-        \subsubsection{<>}
+        \subsubsection{<>} 
+        <>
       ]],
-      { i(1) }
+      { i(1), i(2) }
     )
   ),
   s(
     { trig = "sbsbsb", dscr = "Expands 'sbsbsb' into subsubsection commmand" },
     fmta(
       [[
-        \subsubsubsection{<>}
+        \subsubsubsection{<>} 
+        <>
       ]],
-      { i(1) }
+      { i(1), i(2) }
     )
   ),
   s(

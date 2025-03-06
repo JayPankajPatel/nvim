@@ -1,5 +1,15 @@
 return {
   {
+      "kylechui/nvim-surround",
+      version = "*", -- Use for stability; omit to use `main` branch for the latest features
+      event = "VeryLazy",
+      config = function()
+          require("nvim-surround").setup({
+              -- Configuration here, or leave empty to use defaults
+          })
+      end
+  }, 
+  {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
@@ -52,8 +62,8 @@ return {
     init = function()
       -- VimTeX configuration goes here, e.g.
       vim.g.vimtex_view_method = "zathura"
-      vim.opt.conceallevel = 1
-      vim.g.tex_conceal = "abdmg"
+      -- vim.opt.conceallevel = 1
+      -- vim.g.tex_conceal = "abdmg"
     end,
   },
   {
