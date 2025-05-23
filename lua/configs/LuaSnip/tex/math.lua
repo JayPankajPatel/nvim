@@ -61,6 +61,9 @@ return {
   s({ trig = ";s", snippetType = "autosnippet" }, {
     t "\\sigma",
   }),
+  s({ trig = ";S", snippetType = "autosnippet" }, {
+    t "\\Sigma",
+  }),
   s({ trig = ";r", snippetType = "autosnippet" }, {
     t "\\rho",
   }),
