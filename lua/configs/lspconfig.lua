@@ -4,7 +4,7 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "clangd", "lua_ls", "ltex" }
+local servers = { "clangd", "lua_ls", "ltex", "pyright"}
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- verible setup because root dir has a horrible default variable of ONLY .git

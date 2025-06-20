@@ -13,8 +13,8 @@ local opts = {
     --null_ls.builtins.formatting.latexindent,
 
     -- Verilog, SystemVerilog
-    -- null_ls.builtins.formatting.verible_verilog_format,
-    -- null_ls.builtins.diagnostics.verilator,
+    null_ls.builtins.formatting.verible_verilog_format,
+    null_ls.builtins.diagnostics.verilator,
   },
   on_attach = function(client, bufnr)
     if client.supports_method "textDocument/formatting" then
