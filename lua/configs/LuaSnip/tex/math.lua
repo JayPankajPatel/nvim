@@ -180,7 +180,7 @@ return {
     { trig = "l{", snippetType = "autosnippet" },
     fmta("\\left\\{ <> \\right\\", { i(1) }, { condition = in_mathzone })
   ),
-  s({ trig = "l(", snippetType = "autosnippet" }, fmta("\\left( <> \\right", { i(1) }, { condition = in_mathzone })),
+  s({ trig = "l(", snippetType = "autosnippet" }, fmta("\\left( <> \\right)", { i(1) }, { condition = in_mathzone })),
   s({ trig = "l[", snippetType = "autosnippet" }, fmta("\\left[ <> \\right", { i(1) }, { condition = in_mathzone })),
   s(
     { trig = "l[]", dscr = "Expands 'lan' to surround with angles." },
