@@ -1,14 +1,24 @@
 return {
   {
-      "kylechui/nvim-surround",
-      version = "*", -- Use for stability; omit to use `main` branch for the latest features
-      event = "VeryLazy",
-      config = function()
-          require("nvim-surround").setup({
-              -- Configuration here, or leave empty to use defaults
-          })
-      end
-  }, 
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = {
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        { path = "lazy.nvim", words = { "LazyVim" } },
+      },
+    },
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
+  },
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
@@ -24,7 +34,12 @@ return {
   },
 
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = { "mason-org/mason.nvim" },
+    event = "VeryLazy",
     opts = {
       ensure_installed = {
         "lua-language-server",
@@ -34,26 +49,51 @@ return {
         "isort",
         "latexindent",
         "texlab",
-        "pyflakes",
+        "mypy",
+        "ruff",
         "clangd",
-        "clang_format",
+        "clang-format",
         "verible",
-        "ltex-ls",
+        "ltex-ls-plus",
+        "slang-server",
+        "tree-sitter-cli",
       },
+      run_on_start = true,
+      start_delay = 3000,
     },
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    build = function()
+      if vim.fn.executable "tree-sitter" == 1 then
+        vim.cmd "TSUpdate"
+      end
+    end,
     opts = {
       ensure_installed = {
         "vim",
         "lua",
         "vimdoc",
+        "bash",
         "c",
+        "cpp",
+        "latex",
+        "markdown",
+        "markdown_inline",
         "python",
-        "verilog",
+        "rst",
+        "systemverilog",
+        "vhdl",
+        "yaml",
       },
     },
+    config = function(_, opts)
+      require("nvim-treesitter").setup()
+      if vim.fn.executable "tree-sitter" == 1 then
+        require("nvim-treesitter").install(opts.ensure_installed)
+      end
+    end,
   },
   {
     "lervag/vimtex",
@@ -90,10 +130,27 @@ return {
     end,
   },
   {
-    "nvimtools/none-ls.nvim",
+    "mfussenegger/nvim-lint",
     event = "VeryLazy",
-    opts = function()
-      return require "../configs/null-ls"
+    config = function()
+      require("configs.lint").setup()
     end,
-  }
+  },
+  {
+    "j-hui/fidget.nvim",
+    event = "LspAttach",
+    opts = {},
+  },
+  {
+    "hudson-trading/slang-server.nvim",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    opts = {},
+    keys = {
+      { "<leader>vv", "<cmd>SlangServer setTopLevel<CR><cmd>SlangServer hierarchy<CR>", desc = "Slang hierarchy" },
+    },
+  },
+  {
+    "dhruvasagar/vim-table-mode",
+    event = "VeryLazy",
+  },
 }
