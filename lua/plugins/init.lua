@@ -28,6 +28,7 @@ return {
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require "configs.lspconfig"
     end,
@@ -152,5 +153,8 @@ return {
   {
     "dhruvasagar/vim-table-mode",
     event = "VeryLazy",
+  },
+  {
+    "hudson-trading/slang-server.nvim",
   },
 }

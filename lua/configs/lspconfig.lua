@@ -59,6 +59,12 @@ configure("slang_server", {
   root_markers = { ".slang", ".git" },
 })
 
+configure("capl_ls", {
+  cmd = { "/home/jay/Repos/capl-ls/target/debug/capl-ls" },
+  filetypes = { "capl" },
+  root_markers = { ".git" },
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspModern", { clear = true }),
   callback = function(args)
