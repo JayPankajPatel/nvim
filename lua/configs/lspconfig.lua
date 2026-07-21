@@ -45,6 +45,18 @@ configure("pyright", {
   },
 })
 
+-- linting/formatting/import-sorting; pyright stays on for type checking + hover
+configure("ruff", {
+  cmd = { "ruff", "server" },
+  root_dir = pyright_root,
+  init_options = {
+    settings = {
+      -- avoid duplicate hover popups with pyright
+      hover = { enable = false },
+    },
+  },
+})
+
 configure "ltex_plus"
 
 configure "texlab"
