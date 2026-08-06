@@ -173,8 +173,5 @@ return {
   {
     "dhruvasagar/vim-table-mode",
     event = "VeryLazy",
-  },
-  {
-    "hudson-trading/slang-server.nvim",
-  },
+  }
 }
