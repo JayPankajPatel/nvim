@@ -69,6 +69,7 @@ return {
         "latexindent",
         "texlab",
         "mypy",
+        "pyright",
         "ruff",
         "clangd",
         "clang-format",
