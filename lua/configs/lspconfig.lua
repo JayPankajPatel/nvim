@@ -32,6 +32,7 @@ end
 
 configure "clangd"
 
+-- Replace your current configure("pyright", ...) block with this setup:
 configure("pyright", {
   root_dir = pyright_root,
   settings = {
@@ -43,6 +44,31 @@ configure("pyright", {
       },
     },
   },
+  on_init = function(client)
+    -- Fire NvChad's internal on_init default rules first to preserve hooks
+    if nvlsp.on_init then
+      nvlsp.on_init(client)
+    end
+
+    -- Run git rev-parse asynchronously to anchor paths to project root
+    vim.system({ "git", "rev-parse", "--show-toplevel" }, { text = true }, function(obj)
+      if obj.code == 0 and obj.stdout then
+        local git_root = vim.trim(obj.stdout)
+        local pixi_python = git_root .. "/.pixi/envs/default/bin/python"
+
+        -- Safely inject into Pyright settings on the main execution thread
+        vim.schedule(function()
+          if vim.fn.executable(pixi_python) == 1 then
+            client.config.settings.python.pythonPath = pixi_python
+            client.notify("workspace/didChangeConfiguration", {
+              settings = client.config.settings,
+            })
+          end
+        end)
+      end
+    end)
+    return true
+  end,
 })
 
 -- linting/formatting/import-sorting; pyright stays on for type checking + hover
