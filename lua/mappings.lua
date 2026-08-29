@@ -30,3 +30,14 @@ vim.api
     .nvim_set_keymap('n', '<C-u>', '<C-u>zz', {noremap = true, silent = true})
 vim.api
     .nvim_set_keymap('n', '<C-d>', '<C-d>zz', {noremap = true, silent = true})
+
+-- close the quickfix list after jumping to a reference/quickfix entry,
+-- instead of leaving it open as a squished split
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function(args)
+    local opts = { buffer = args.buf, silent = true }
+    vim.keymap.set("n", "<CR>", "<CR>:cclose<CR>", opts)
+    vim.keymap.set("n", "q", "<cmd>cclose<CR>", opts)
+  end,
+})

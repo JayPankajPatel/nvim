@@ -1,7 +1,6 @@
 local M = {}
 
 M.linters_by_ft = {
-  python = { "mypy" },
   verilog = { "verilator" },
   systemverilog = { "verilator" },
 }
